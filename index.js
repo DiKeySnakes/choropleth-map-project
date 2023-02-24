@@ -66,7 +66,7 @@ const createMap = () => {
       tooltip.transition().style('visibility', 'visible');
 
       tooltip.text(
-        `${target.dataset.area_name}, ${target.dataset.state} : ${target.dataset.education}%`
+        `${target.dataset.area_name}, ${target.dataset.state}: ${target.dataset.education}%`
       );
 
       tooltip.attr('data-education', target.dataset.education);
