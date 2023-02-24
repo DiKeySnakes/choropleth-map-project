@@ -1,8 +1,3 @@
-const countyURL =
-  'https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/counties.json';
-const educationURL =
-  'https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/for_user_education.json';
-
 let countyData;
 let educationData;
 
@@ -50,24 +45,41 @@ const createMap = () => {
       const percentage = county['bachelorsOrHigher'];
       return percentage;
     })
-    .on('mouseover', (countyDataItem) => {
-      tooltip.transition().style('visibility', 'visible');
-
+    .attr('data-area_name', (countyDataItem) => {
       const id = countyDataItem['id'];
       const county = educationData.find((item) => {
         return item['fips'] === id;
       });
+      const area_name = county['area_name'];
+      return area_name;
+    })
+    .attr('data-state', (countyDataItem) => {
+      const id = countyDataItem['id'];
+      const county = educationData.find((item) => {
+        return item['fips'] === id;
+      });
+      const state = county['state'];
+      return state;
+    })
+    .on('mouseover', (e) => {
+      const target = e.target;
+      tooltip.transition().style('visibility', 'visible');
 
       tooltip.text(
-        `${county['area_name']}, ${county['state']} - ${county['bachelorsOrHigher']} %`
+        `${target.dataset.area_name}, ${target.dataset.state} : ${target.dataset.education}%`
       );
 
-      tooltip.attr('data-education', county['bachelorsOrHigher']);
+      tooltip.attr('data-education', target.dataset.education);
     })
     .on('mouseout', () => {
       tooltip.transition().style('visibility', 'hidden');
     });
 };
+
+const countyURL =
+  'https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/counties.json';
+const educationURL =
+  'https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/for_user_education.json';
 
 d3.json(countyURL).then((data, error) => {
   if (error) {
