@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choropleth Map Project</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"
+      integrity="sha512-4UKI/XKm3xrvJ6pZS5oTRvIQGIzZFoXR71rRBb1y2N+PbwAsKa5tPl2J6WvbEvwN3TxQCm8hMzsl/pO+82iRlg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <h1 id="title">United States Adult Education</h1>
+    <h3 id="description">
+      Percentage of adults age 25 and older with a bachelor's degree or higher
+      (2010-2014)
+    </h3>
+    <svg id="canvas">
+      <g id="legend">
+        <text x="550" y="50" fill="black">3%</text>
+        <line x1="560" y1="20" x2="560" y2="35" stroke="black" />
+        <rect
+          x="560"
+          y="20"
+          width="40"
+          height="10"
+          fill="rgba(148, 255, 185, 1)"
+          stroke="black" />
+        <text x="590" y="50" fill="black">12%</text>
+        <line x1="600" y1="20" x2="600" y2="35" stroke="black" />
+        <rect
+          x="600"
+          y="20"
+          width="40"
+          height="10"
+          fill="rgba(26, 255, 106, 1)"
+          stroke="black" />
+        <text x="630" y="50" fill="black">21%</text>
+        <line x1="640" y1="20" x2="640" y2="35" stroke="black" />
+        <rect
+          x="640"
+          y="20"
+          width="40"
+          height="10"
+          fill="rgba(0, 230, 80, 1)"
+          stroke="black" />
+        <text x="670" y="50" fill="black">30%</text>
+        <line x1="680" y1="20" x2="680" y2="35" stroke="black" />
+        <rect
+          x="680"
+          y="20"
+          width="40"
+          height="10"
+          fill="rgba(0, 179, 62, 1)"
+          stroke="black" />
+        <text x="710" y="50" fill="black">39%</text>
+        <line x1="720" y1="20" x2="720" y2="35" stroke="black" />
+        <rect
+          x="720"
+          y="20"
+          width="40"
+          height="10"
+          fill="rgba(0, 143, 50, 1)"
+          stroke="black" />
+        <text x="750" y="50" fill="black">48%</text>
+        <line x1="760" y1="20" x2="760" y2="35" stroke="black" />
+        <rect
+          x="760"
+          y="20"
+          width="40"
+          height="10"
+          fill="rgba(0, 117, 41, 1)"
+          stroke="black" />
+        <text x="790" y="50" fill="black">57%</text>
+        <line x1="800" y1="20" x2="800" y2="35" stroke="black" />
+        <rect
+          x="800"
+          y="20"
+          width="40"
+          height="10"
+          fill="rgba(0, 71, 25, 1)"
+          stroke="black" />
+        <line x1="840" y1="20" x2="840" y2="35" stroke="black" />
+        <text x="830" y="50" fill="black">66%</text>
+      </g>
+    </svg>
+    <div id="tooltip"></div>
+    <div id="source">
+      Source:
+      <a
+        href="https://www.ers.usda.gov/data-products/county-level-data-sets/download-data.aspx"
+        >USDA Economic Research Service</a
+      >
+    </div>
+  </body>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</html>
